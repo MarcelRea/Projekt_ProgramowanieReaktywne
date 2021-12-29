@@ -7,7 +7,7 @@ section{
 }
 
 .searchbox{
-    width: 400%;
+    width: 100%;
     padding: 10px;
     margin:10px;
 }
@@ -43,13 +43,12 @@ section{
 
 .h1{
     color:#CC0033;
-    margin:30px;
+    margin:200px;
+    margin-left:100px;
 }
 
-.butt{
-    margin:25px;
-    margin-left:51%;
-    width:10%;
-    background-color:#000033;
-    color:white;
+.in{
+    text-align:center;
 }
+
+
