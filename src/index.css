@@ -6,12 +6,6 @@ section{
     padding: 20px;
 }
 
-.searchbox{
-    width: 100%;
-    padding: 10px;
-    margin:10px;
-}
-
 .App{
     display: flex;
 }
@@ -21,20 +15,12 @@ section{
     margin-right: 20px;
     padding: 50px;
     display: flex;
-    justify-content:center;
+    justify-content:'space-between';
 }
 
 .move{
     padding:30px;
     width: 18rem;
-}
-
-.content2{
-    margin-top: 20px;
-    margin-right: 20px;
-    padding: 50px;
-    display: flex;
-    justify-content:center;
 }
 
 .card{
@@ -50,5 +36,28 @@ section{
 .in{
     text-align:center;
 }
+
+.zalogowany{
+    color:#008B8B;
+    margin-right:-200px;
+}
+
+.test{
+    margin-top: 1em;
+}
+.card2{
+    width:400px;
+}
+.App3{
+    margin-top:150px;
+    margin-left:450px;
+}
+
+.Search{
+    display:flex;
+    width: 90%;
+    margin-left:55px;
+}
+
 
 

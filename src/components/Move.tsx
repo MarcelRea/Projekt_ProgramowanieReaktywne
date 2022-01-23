@@ -1,19 +1,63 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const Move = (props: any) => {
+class Move extends React.Component <any, any> {
+
+  render(){
+  const link = "details/" + this.props.id;
+
   return (
-    <div className="col">
-      <div className="card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThZZaH7jVPV1XuPHsHTfeUfEC4Gtx_ZR8vzA&usqp=CAU" className="card-img-top" alt="zdj" height="200"></img>
+    <div className="row">
+      <div className="col-sm-6">
+      <div className="card bg-dark text-white">
+            <img src={this.props.image} className="card-img-top" alt="zdj" height="300"></img>
             <div className="card-body">
-                  <h5 className="card-title">Tytuł filmu</h5>
-              <p className="card-text">Opis filmu, informacje, aktorzy, postacie, kina, ciekawostki</p>
-              <Link to="/details"><a href="#" className="btn btn-primary">Zobacz więcej</a></Link>
+                  <h5 className="card-title">{this.props.title}</h5>
+              <p className="card-text">{this.props.content}</p>
+              <Link to={link}><a href="#" className="btn btn-primary bg-info text-dark">Zobacz więcej</a></Link>
             </div>
        </div>
     </div>
+    </div>
 
-  );
+  )
+  }
 }
-export default Move;
+
+export default class Moves extends React.Component <any, any> {
+    constructor(props:any) {
+                super(props);
+
+                this.state = {
+                    movies: [],
+                    isLoaded: false,
+                };
+
+            }
+
+        componentDidMount() {
+                fetch(
+                    "https://pr-movies.herokuapp.com/api/movies")
+                    .then((res) => res.json())
+                    .then((json) => {
+                        this.setState({
+                            movies: json,
+                        });
+                    })
+            }
+    render(){
+    const {movies} = this.state;
+
+    return(
+        <div className='row'>
+            {movies.map((movie:any) => (
+            <div className='col-sm'>
+            <div className='test'>
+                <Move className='col p-2' title={movie.title} image={movie.image} id={movie.id}/>
+                </div>
+            </div>
+            ))}
+            </div>
+    )
+    }
+}
